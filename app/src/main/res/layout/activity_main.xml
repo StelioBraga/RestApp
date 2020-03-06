@@ -1,25 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/ly"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_nom"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/te_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome:"/>
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_toRightOf="@id/tv_nom"
+            android:hint="Dedite o nome do pais"/>
+        <Button
+            android:id="@+id/bt_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Franca"/>
+            android:text="Pesquisar"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pais"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal"
+        tools:listitem="@layout/countries_post" />
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_export_csv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="#00897B"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_csv"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_export_xml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="#00897B"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_xml"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_export_xls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="#00897B"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_xls"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rippleColor="@color/colorPrimary"
+        android:background="#00897B"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_export"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
