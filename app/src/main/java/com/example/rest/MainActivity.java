@@ -82,9 +82,12 @@ public class MainActivity extends AppCompatActivity {
 
                 String countrName  = te_search.getText().toString();
                 fetchRestCountries(countrName);
+                if(!paisList.isEmpty()){
+                    paisList.clear();
+                }
             }
         });
-
+        // floating button
         floating_action_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

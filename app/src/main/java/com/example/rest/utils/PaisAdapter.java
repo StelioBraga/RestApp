@@ -13,11 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.rest.R;
 import com.example.rest.models.Pais;
 
+import org.json.JSONException;
+
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class PaisAdapter extends RecyclerView.Adapter<PaisAdapter.PaisViewHolder> {
     private List<Pais> paisList;
     private Context mContext;
+    String formatString;
 
     public PaisAdapter( List<Pais> paisList, Context mContext){
         this.paisList = paisList;
@@ -41,11 +45,20 @@ public class PaisAdapter extends RecyclerView.Adapter<PaisAdapter.PaisViewHolder
         holder.tv_nativeName.setText(pais.getNativeName());
         holder.tv_population.setText(String.valueOf(pais.getPopulation()));
         holder.tv_area.setText(String.valueOf(pais.getArea()));
-        holder.tv_flag.setText(Html.fromHtml( String.valueOf(pais.getFlag())));
+        holder.tv_flag.setText(String.valueOf(pais.getFlag()));
         holder.tv_sub_region.setText(pais.getSub_region());
         holder.tv_region.setText(pais.getRegion());
-        holder.tv_timezones.setText(String.valueOf(pais.getTimezones()));
 
+        for (int i = 0; i < pais.getTimezones().length(); i++) {
+            try {
+                String time = String.valueOf(pais.getTimezones().get(i)) ;
+                formatString += String.format(",%s", String.format(time));
+                formatString = formatString.replace("null,","");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        holder.tv_timezones.setText(formatString);
     }
 
     @Override
@@ -68,8 +81,6 @@ public class PaisAdapter extends RecyclerView.Adapter<PaisAdapter.PaisViewHolder
             tv_timezones   = itemView.findViewById(R.id.tv_timezone);
             tv_nativeName  = itemView.findViewById(R.id.tv_nativeName);
             tv_flag        = itemView.findViewById(R.id.tv_flag);
-
-
         }
     }
 }

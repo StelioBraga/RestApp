@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Regiao: "/>
+                android:text="Região: "/>
             <TextView
                 android:id="@+id/tv_region"
                 android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Sub-Regiao:"/>
+                android:text="Sub-Região:"/>
             <TextView
                 android:id="@+id/tv_sub_region"
                 android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Populacao: " />
+                android:text="Populacão: " />
             <TextView
                 android:id="@+id/tv_population"
                 android:layout_width="wrap_content"
@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Fuso horario:"/>
+                android:text="Fuso horário:"/>
             <TextView
                 android:id="@+id/tv_timezone"
                 android:layout_width="wrap_content"
@@ -175,6 +175,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginBottom="4dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/flag"
